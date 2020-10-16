@@ -4,7 +4,6 @@ from transformers import pipeline
 
 import streamlit as st
 
-
 st.header("0")
 
 classifier = pipeline("zero-shot-classification")
@@ -23,7 +22,3 @@ results = classifier(sequence, candidate_labels)
 dfnew = pd.DataFrame(results)
 
 st.write(dfnew)
-
-
-
-
