@@ -4,6 +4,15 @@ from transformers import pipeline
 
 import streamlit as st
 
+##########################
+
+from transformers import AutoTokenizer, AutoModel
+tokenizer = AutoTokenizer.from_pretrained("facebook/bart-large-mnli")
+model = AutoModel.from_pretrained("facebook/bart-large-mnli")
+
+##########################
+
+
 st.header("0")
 
 classifier = pipeline("zero-shot-classification")
