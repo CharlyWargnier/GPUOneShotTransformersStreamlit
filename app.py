@@ -15,6 +15,8 @@ model = AutoModel.from_pretrained("facebook/bart-large-mnli")
 
 st.header("0")
 
+st.stop()
+
 classifier = pipeline("zero-shot-classification")
 #classifier = pipeline("zero-shot-classification", device=0) # to utilize GPU
 
