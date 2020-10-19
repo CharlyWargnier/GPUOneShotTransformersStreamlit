@@ -81,8 +81,8 @@ model = AutoModel.from_pretrained("facebook/bart-large-mnli")
 
 ##########################
 
-classifier = pipeline("zero-shot-classification")
-#classifier = pipeline("zero-shot-classification", device=0) # to utilize GPU
+#classifier = pipeline("zero-shot-classification")
+classifier = pipeline("zero-shot-classification", device=0) # to utilize GPU
 
 df2 = pd.DataFrame(np.array([["boots", 2,3 ], ["boat", 5, 6], ["car", 8, 9]]),columns=['keyword', 'b', 'c'])
 
