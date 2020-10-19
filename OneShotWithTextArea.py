@@ -3,6 +3,13 @@ import numpy as np
 from transformers import pipeline
 import streamlit as st
 
+# Download models ##########################
+
+from transformers import AutoTokenizer, AutoModel
+tokenizer = AutoTokenizer.from_pretrained("facebook/bart-large-mnli")
+model = AutoModel.from_pretrained("facebook/bart-large-mnli")
+
+##########################
 
 
 st.title("One Shot Classifier")
@@ -73,15 +80,11 @@ st.write("candidate_labels")
 st.write(candidate_labels)
 #candidate_labels = ["shoe", "sea", "automotive"]
 
-#st.stop()
 
-from transformers import AutoTokenizer, AutoModel
-tokenizer = AutoTokenizer.from_pretrained("facebook/bart-large-mnli")
-model = AutoModel.from_pretrained("facebook/bart-large-mnli")
-
-##########################
-
+# CPU based operations
 #classifier = pipeline("zero-shot-classification")
+
+# GPU based operations
 classifier = pipeline("zero-shot-classification", device=0) # to utilize GPU
 
 df2 = pd.DataFrame(np.array([["boots", 2,3 ], ["boat", 5, 6], ["car", 8, 9]]),columns=['keyword', 'b', 'c'])
